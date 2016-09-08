@@ -12,7 +12,7 @@ before_script:
  #- travis_wait 800 make
  - curl -LO https://raw.github.com/stephanmg/travis-dependent-builds/master/trigger.sh; 
  - chmod +x trigger.sh
- - ./trigger.sh NeuroBox3D VRL-NeuroBox-Plugin ci $TRAVIS_ACCESS_TOKEN ""
+ - ./trigger.sh NeuroBox3D VRL-NeuroBox-Plugin master $TRAVIS_ACCESS_TOKEN ""
  
 script:
  -
