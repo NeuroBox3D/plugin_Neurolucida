@@ -68,7 +68,9 @@ namespace ug {
 					.add_method("set_separator", (void (TNeurolucida::*)(const std::string&))&TNeurolucida::set_separator)
 					.add_method("set_scaling", (void (TNeurolucida::*)(number))&TNeurolucida::set_scaling)
 					.add_method("set_VRLOutputNames", (void (TNeurolucida::*)(bool))&TNeurolucida::set_VRLOutputNames)
-					.add_method("print_setup",  (void (TNeurolucida::*)())&TNeurolucida::print_setup);
+					.add_method("print_setup",  (void (TNeurolucida::*)())&TNeurolucida::print_setup)
+					.add_method("set_obj_output", (void (TNeurolucida::*)(bool))&TNeuroLucida::set_convert_to_obj)
+					.add_method("set_ugx_output", (void (TNeurolucida::*)(bool))&TNeuroLucida::set_convert_to_ugx);
 			}
 		};
 	} /// \}
