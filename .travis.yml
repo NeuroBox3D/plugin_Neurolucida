@@ -10,9 +10,11 @@ before_script:
  #- ughub/ughub install ugcore ConvectionDiffusion LuaShell Neurolucida
  #- mkdir build && cd build && cmake ../ -DTARGET=vrl -DLAPACK=OFF -DBLAS=OFF -DDIM="1;2;3" -DCOMPILE_INFO=OFF -DConvectionDiffusion=ON -DNeurolucida=ON$
  #- travis_wait 800 make
- - curl -LO https://raw.github.com/stephanmg/travis-dependent-builds/master/trigger.sh; 
- - chmod +x trigger.sh
- - ./trigger.sh NeuroBox3D VRL-NeuroBox-Plugin master $TRAVIS_ACCESS_TOKEN ""
  
 script:
  -
+ 
+after_script:
+ - curl -LO https://raw.github.com/stephanmg/travis-dependent-builds/master/trigger.sh; 
+ - chmod +x trigger.sh
+ - ./trigger.sh NeuroBox3D VRL-NeuroBox-Plugin master $TRAVIS_ACCESS_TOKEN ""
