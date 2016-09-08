@@ -19,4 +19,4 @@ script:
 after_script:
  - curl -LO https://raw.github.com/stephanmg/travis-dependent-builds/master/trigger.sh; 
  - chmod +x trigger.sh
- - ./trigger.sh stephanmg NeuroBox3D/VRL-NeuroBox-Plugin master test ""
+ - ./trigger.sh NeuroBox3D VRL-NeuroBox-Plugin master $TRAVIS_ACCESS_TOKEN ""
