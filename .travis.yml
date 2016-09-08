@@ -4,19 +4,17 @@ dist: trusty
 
 before_script:
  - gem install travis
- #- git clone https://www.github.com/UG4/ughub
- #- ughub/ughub init
- #- ughub/ughub addsource neurobox https://github.com/NeuroBox3D/neurobox-packages.git
- #- ughub/ughub install ugcore ConvectionDiffusion LuaShell Neurolucida
- #- mkdir build && cd build && cmake ../ -DTARGET=vrl -DLAPACK=OFF -DBLAS=OFF -DDIM="1;2;3" -DCOMPILE_INFO=OFF -DConvectionDiffusion=ON -DNeurolucida=ON$
- #- travis_wait 800 make
- 
- 
+ - git clone https://www.github.com/UG4/ughub
+ - ughub/ughub init
+ - ughub/ughub addsource neurobox https://github.com/NeuroBox3D/neurobox-packages.git
+ - ughub/ughub install ugcore ConvectionDiffusion LuaShell Neurolucida
+ - mkdir build && cd build && cmake ../ -DTARGET=vrl -DLAPACK=OFF -DBLAS=OFF -DDIM="1;2;3" -DCOMPILE_INFO=OFF -DConvectionDiffusion=ON -DNeurolucida=ON$
+ - travis_wait 800 make
+
 script:
  -
  
- 
-after_script:
+after_success:
  - curl -LO https://raw.github.com/stephanmg/travis-dependent-builds/master/trigger.sh; 
  - chmod +x trigger.sh
  - ./trigger.sh NeuroBox3D VRL-NeuroBox-Plugin ci $TRAVIS_ACCESS_TOKEN ""
