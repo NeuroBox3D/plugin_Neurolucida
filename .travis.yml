@@ -10,6 +10,7 @@ before_script:
  #- ughub/ughub install ugcore ConvectionDiffusion LuaShell Neurolucida
  #- mkdir build && cd build && cmake ../ -DTARGET=vrl -DLAPACK=OFF -DBLAS=OFF -DDIM="1;2;3" -DCOMPILE_INFO=OFF -DConvectionDiffusion=ON -DNeurolucida=ON$
  #- travis_wait 800 make
+ 
 
 script:
  -
