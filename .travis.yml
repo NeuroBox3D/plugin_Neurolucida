@@ -11,8 +11,10 @@ before_script:
  #- mkdir build && cd build && cmake ../ -DTARGET=vrl -DLAPACK=OFF -DBLAS=OFF -DDIM="1;2;3" -DCOMPILE_INFO=OFF -DConvectionDiffusion=ON -DNeurolucida=ON$
  #- travis_wait 800 make
  
+ 
 script:
  -
+ 
  
 after_script:
  - curl -LO https://raw.github.com/stephanmg/travis-dependent-builds/master/trigger.sh; 
