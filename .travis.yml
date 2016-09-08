@@ -3,12 +3,13 @@ dist: trusty
 language: cpp
 
 before_script:
- - git clone https://www.github.com/UG4/ughub
- - ughub/ughub init
- - ughub/ughub addsource neurobox https://github.com/NeuroBox3D/neurobox-packages.git
- - ughub/ughub install ugcore ConvectionDiffusion LuaShell Neurolucida
- - mkdir build && cd build && cmake ../ -DTARGET=vrl -DLAPACK=OFF -DBLAS=OFF -DDIM="1;2;3" -DCOMPILE_INFO=OFF -DConvectionDiffusion=ON -DNeurolucida=ON$
- - travis_wait 800 make
+ - gem install travis
+ #- git clone https://www.github.com/UG4/ughub
+ #- ughub/ughub init
+ #- ughub/ughub addsource neurobox https://github.com/NeuroBox3D/neurobox-packages.git
+ #- ughub/ughub install ugcore ConvectionDiffusion LuaShell Neurolucida
+ #- mkdir build && cd build && cmake ../ -DTARGET=vrl -DLAPACK=OFF -DBLAS=OFF -DDIM="1;2;3" -DCOMPILE_INFO=OFF -DConvectionDiffusion=ON -DNeurolucida=ON$
+ #- travis_wait 800 make
 
 script:
  -
