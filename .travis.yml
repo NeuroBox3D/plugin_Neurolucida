@@ -1,4 +1,6 @@
-after_script:
+language: java
+
+script:
  - curl -LO https://raw.github.com/stephanmg/travis-dependent-builds/master/trigger.sh; 
  - chmod +x trigger.sh
  - ./trigger.sh NeuroBox3D VRL-NeuroBox-Plugin ci $TRAVIS_ACCESS_TOKEN_NEUROBOX  ""
