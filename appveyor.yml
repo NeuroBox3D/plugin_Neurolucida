@@ -7,10 +7,6 @@ install:
   - '"C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64'
 
 build_script:
-  - appveyor DownloadFile http://mirror.olnevhost.net/pub/apache//ant/binaries/apache-ant-1.9.9-bin.zip
-  - appveyor DownloadFile http://www.stephangrein.de/files/vrl/vrl-app-for-github.zip
-  - 7z x apache-ant-1.9.9-bin.zip
-  - set PATH=%PATH%;C:\projects\vrl-neurobox-plugin\apache-ant-1.9.9\bin;
   - git config --global core.autocrlf true
   - git clone https://www.github.com/UG4/ughub
   - ughub/ughub init
