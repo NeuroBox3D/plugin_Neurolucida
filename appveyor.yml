@@ -1,0 +1,22 @@
+platform:
+  - x64
+
+os: Visual Studio 2015
+
+install:
+  - '"C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64'
+
+build_script:
+  - appveyor DownloadFile http://mirror.olnevhost.net/pub/apache//ant/binaries/apache-ant-1.9.9-bin.zip
+  - appveyor DownloadFile http://www.stephangrein.de/files/vrl/vrl-app-for-github.zip
+  - 7z x apache-ant-1.9.9-bin.zip
+  - set PATH=%PATH%;C:\projects\vrl-neurobox-plugin\apache-ant-1.9.9\bin;
+  - git config --global core.autocrlf true
+  - git clone https://www.github.com/UG4/ughub
+  - ughub/ughub init
+  - ughub/ughub addsource neurobox https://github.com/NeuroBox3D/neurobox-packages.git
+  - ughub/ughub install ugcore Neurolucida 
+  - call ugcore\scripts\shell\vcinit12-64
+  - cmake -DCMAKE_BUILD_TYPE=Release -DTARGET=vrl -DLAPACK=OFF -DBLAS=OFF -DDIM="1;2;3" -DCOMPILE_INFO=OFF -DNeurolucida=ON -DCMAKE_CXX_FLAGS="/MD /O2 /Ob2 /D NDEBUG /bigobj" -DCMAKE_EXE_LINKER_FLAGS="/INCREMENTAL:NO" -DCMAKE_MODULE_LINKER_FLAGS_DEBUG="/INCREMENTAL:NO" -G"NMake Makefiles"
+  - echo "%cd%"
+  - nmake
