@@ -1,6 +1,7 @@
 sudo: false
 dist: trusty
-language: clang
+language: cpp
+compiler: clang
 
 before_script:
  - gem install travis
@@ -8,7 +9,7 @@ before_script:
  - ughub/ughub init
  - ughub/ughub addsource neurobox https://github.com/NeuroBox3D/neurobox-packages.git
  - ughub/ughub install ugcore ConvectionDiffusion LuaShell Neurolucida
- - mkdir build && cd build && cmake ../ -DTARGET=vrl -DLAPACK=OFF -DBLAS=OFF -DDIM="1;2;3" -DCOMPILE_INFO=OFF -DConvectionDiffusion=ON -DNeurolucida=ON$
+ - mkdir build && cd build && cmake ../ -DTARGET=vrl -DLAPACK=OFF -DBLAS=OFF -DDIM="3" -DCOMPILE_INFO=OFF -DConvectionDiffusion=ON -DNeurolucida=ON$
  - travis_wait 800 make
 
 script:
